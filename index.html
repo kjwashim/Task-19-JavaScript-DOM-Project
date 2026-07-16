@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Mart</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Logo
+    </div>
+
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <span class="user">Username</span>
+        <button class="logout-btn">↪</button>
+    </div>
+
+</nav>
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+    <!-- ================= LEFT ================= -->
+
+    <div class="left">
+
+        <!-- Added Items -->
+
+        <div class="card">
+
+            <h2>Added Items</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>S.No</th>
+                        <th>Service Name</th>
+                        <th>Price</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="cartItems">
+
+                    <tr id="emptyRow">
+
+                        <td colspan="3">
+
+                            <div class="empty-box">
+
+                                <div class="icon">ⓘ</div>
+
+                                <h3>No Items Added</h3>
+
+                                <p>Add Items to the cart from the services bar</p>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="total">
+
+                <h4>Total Amount</h4>
+
+                <h4>₹ <span id="totalPrice">0</span></h4>
+
+            </div>
+
+        </div>
+
+        <!-- Booking Form -->
+
+        <div class="card">
+
+            <h3>Book Now</h3>
+
+            <form id="bookingForm">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    placeholder="John Doe"
+                    required
+                >
+
+                <div class="label-row">
+                     <label>Email ID</label>
+                     <label>Phone Number</label>
+                </div>               
+
+                <div class="row">
+
+                    <input
+                        type="email"
+                        placeholder="mail@gmail.com"
+                        required
+                    >
+                    
+                    <input
+                        type="text"
+                        placeholder="0000000000"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="book-btn">
+
+                    Book now
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- ================= RIGHT ================= -->
+
+    <div class="right">
+
+        <div class="card">
+
+            <h1>Browse Our Services</h1>
+
+            <p>
+                Click on the add to cart button to add the services to your cart
+                or press skip.
+            </p>
+
+            <hr>
+
+            <div class="service">
+
+                <img
+                id="serviceImage"
+                src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800"
+                alt="Laundry">
+
+                <h2 id="serviceName">
+
+                    Dry Cleaning
+
+                </h2>
+
+                <h2 class="price">
+
+                    ₹<span id="servicePrice">200</span>.00
+
+                </h2>
+
+                <div class="buttons">
+
+                    <button
+                    class="skip-btn"
+                    onclick="skipItem()">
+
+                        Skip Item
+
+                    </button>
+
+                    <button
+                    class="add-btn"
+                    onclick="addItem()">
+
+                        Add Item
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <p class="bottom-text">
+
+                ⭕ Add the items to the cart and book now
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
