@@ -103,7 +103,3 @@ This project helped practice:
 * Mobile Navigation Menu
 
 ---
-
----
-
-⭐ If you found this project useful, consider giving the repository a **Star**.
