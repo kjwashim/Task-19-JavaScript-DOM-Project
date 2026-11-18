@@ -1,7 +1,7 @@
 # Task-19-JavaScript-DOM-Project
 # Laundry Mart - Service Booking Website
 
-📖 About the Project
+## About the Project
 
 A simple and responsive laundry service booking website built using **HTML, CSS, and JavaScript**. The application allows users to browse laundry services, add services to a cart, view the total amount, and complete a booking through a booking form.
 
@@ -27,15 +27,29 @@ Confirm their booking
 
 ## Features
 
-* Responsive Navigation Bar
-* Browse Laundry Services
-* Add Items to Cart
-* Skip Services
-* Dynamic Total Amount Calculation
-* Shopping Cart Page
-* Booking Form
-* Local Storage Support
-* Responsive Design using Flexbox
+🏠 Home page with laundry service details
+
+🧼 Multiple laundry services with prices and images
+
+🛒 Add to Cart functionality
+
+❌ Remove items from the cart
+
+💰 Automatic price calculation
+
+🎟️ SAVE10 coupon for a 10% discount
+
+📅 Booking confirmation page
+
+👤 Customer details form
+
+📱 Mobile Number field with 10-digit validation
+
+📧 Email and password input fields
+
+💾 Local Storage to save cart and customer details
+
+📱 Responsive layout for different screen sizes
 
 ---
 
