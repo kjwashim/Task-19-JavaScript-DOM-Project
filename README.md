@@ -6,21 +6,21 @@
 A simple and responsive laundry service booking website built using **HTML, CSS, and JavaScript**. The application allows users to browse laundry services, add services to a cart, view the total amount, and complete a booking through a booking form.
 
 
-Users can:
+# Users can:
 
-View available laundry services
+* View available laundry services
 
-Check service prices
+* Check service prices
 
-Add services to their cart
+* Add services to their cart
 
-Remove items from the cart
+* Remove items from the cart
 
-Apply a discount coupon
+* Apply a discount coupon
 
-Enter customer details
+* Enter customer details
 
-Confirm their booking
+* Confirm their booking
 
 
 ---
