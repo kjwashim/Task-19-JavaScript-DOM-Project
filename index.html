@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Mart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">🧺 Laundry Mart</div>
+
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#booking">Book Now</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <span class="user">Username</span>
+            <button class="logout-btn" type="button">↪</button>
+        </div>
+    </nav>
+
+    <!-- MAIN SECTION -->
+    <div class="container">
+
+        <!-- LEFT SECTION -->
+        <div class="left">
+
+            <!-- ADDED ITEMS -->
+            <div class="card">
+                <h2>Added Items</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Service Name</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="cartItems">
+                        <tr id="emptyRow">
+                            <td colspan="3">
+                                <div class="empty-box">
+                                    <div class="icon">ⓘ</div>
+                                    <h3>No Items Added</h3>
+                                    <p>Add Items to the cart from the services bar</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="total">
+                    <h4>Total Amount</h4>
+                    <h4>₹ <span id="totalPrice">0</span></h4>
+                </div>
+
+                <!-- SEPARATE CART AND BOOKING BUTTONS -->
+                <div class="cart-actions">
+                    <button type="button" class="add-btn" onclick="addToCart()">
+                        Add to Cart
+                    </button>
+
+                    <button type="button" class="book-btn" onclick="goToBooking()">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- BOOKING DETAILS FORM -->
+            <div class="card" id="booking">
+                <h3>Booking Details</h3>
+
+                <form id="bookingForm">
+                    <label for="fullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter Full Name"
+                        required
+                    >
+                    <label for="mobile">Mobile Number</label>
+                        <input
+                            type="tel"
+                            id="mobile"
+                            placeholder="Enter 10-digit Mobile Number"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            required
+                        >
+
+
+
+                    <div class="label-row">
+                        <label for="email">Email ID</label>
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="row">
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="mail@gmail.com"
+                            required
+                        >
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter Password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="book-btn">
+                        Continue to Booking
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="right" id="services">
+            <div class="card">
+                <h1>Browse Our Services</h1>
+
+                <p>
+                    Click on Add Item to select a service or press Skip Item
+                    to view the next service.
+                </p>
+
+                <hr>
+
+                <div class="service">
+                    <img
+                        id="serviceImage"
+                        src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800"
+                        alt="Laundry Service"
+                    >
+
+                    <h2 id="serviceName">Dry Cleaning</h2>
+
+                    <h2 class="price">
+                        ₹<span id="servicePrice">200</span>.00
+                    </h2>
+
+                    <div class="buttons">
+                        <button
+                            type="button"
+                            class="skip-btn"
+                            onclick="skipItem()"
+                        >
+                            Skip Item
+                        </button>
+
+                        <button
+                            type="button"
+                            class="add-btn"
+                            onclick="addItem()"
+                        >
+                            Add Item
+                        </button>
+                    </div>
+                </div>
+
+                <hr>
+
+                <p class="bottom-text">
+                    ⭕ Add the items to your cart and book now
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

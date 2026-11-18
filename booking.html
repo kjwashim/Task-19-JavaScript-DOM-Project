@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Laundry Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">🧺 Laundry Mart</div>
+
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <span class="user">Username</span>
+            <button class="logout-btn" type="button">↪</button>
+        </div>
+    </nav>
+
+    <!-- BOOKING SECTION -->
+    <section class="container">
+
+        <!-- LEFT SECTION -->
+        <div class="left-section">
+            <h2>📋 Book Now</h2>
+
+            <form id="bookingForm">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter Full Name"
+                    required
+                >
+
+                <br><br>
+
+                <label for="mobile">Mobile Number</label>
+                    <input
+                        type="tel"
+                        id="mobile"
+                        placeholder="Enter 10-digit Mobile Number"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        required
+                    >
+
+                <br><br>
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter Email"
+                    required
+                >
+
+                <br><br>
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter Password"
+                    required
+                >
+
+                <br><br>
+
+                <button type="submit" class="book-btn">
+                    Confirm Booking
+                </button>
+            </form>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="right-section">
+            <h2>Your Selected Services</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody id="bookingItems"></tbody>
+            </table>
+
+            <div class="total-box">
+                <h3>Total Amount</h3>
+                <h2>₹ <span id="bookingTotal">0</span></h2>
+            </div>
+
+            <br>
+
+            <button
+                class="cart-btn"
+                type="button"
+                onclick="location.href='cart.html'"
+            >
+                Back to Cart
+            </button>
+        </div>
+
+    </section>
+
+    <script>
+        // LOAD SAVED CART
+        const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        const total = Number(localStorage.getItem("totalAmount")) || 0;
+
+        const table = document.getElementById("bookingItems");
+
+        // DISPLAY SELECTED SERVICES
+        if (items.length === 0) {
+            table.innerHTML = `
+                <tr>
+                    <td colspan="2" class="empty-message">
+                        No services selected
+                    </td>
+                </tr>
+            `;
+        } else {
+            items.forEach(function(item) {
+                const row = document.createElement("tr");
+
+                const nameCell = document.createElement("td");
+                nameCell.innerText = item.name;
+
+                const priceCell = document.createElement("td");
+                priceCell.innerText = "₹" + item.price;
+
+                row.appendChild(nameCell);
+                row.appendChild(priceCell);
+
+                table.appendChild(row);
+            });
+        }
+
+        document.getElementById("bookingTotal").innerText = total + 50;
+
+        // PREFILL CUSTOMER DETAILS
+        document.getElementById("name").value =
+            localStorage.getItem("customerName") || "";
+
+        document.getElementById("email").value =
+            localStorage.getItem("customerEmail") || "";
+
+        // CONFIRM BOOKING
+        document.getElementById("bookingForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            if (items.length === 0) {
+                alert("Your cart is empty. Please select a service first.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const name = document.getElementById("name").value.trim();
+
+            alert(
+                "Thank you " + name +
+                "!\n\nYour laundry service has been booked successfully."
+            );
+
+            localStorage.removeItem("cartItems");
+            localStorage.removeItem("totalAmount");
+            localStorage.removeItem("totalPrice");
+            localStorage.removeItem("couponApplied");
+            localStorage.removeItem("customerName");
+            localStorage.removeItem("customerEmail");
+
+            window.location.href = "index.html";
+        });
+
+        // LOGOUT
+        document.querySelector(".logout-btn").addEventListener("click", function() {
+            if (confirm("Do you want to logout?")) {
+                localStorage.removeItem("customerName");
+                localStorage.removeItem("customerEmail");
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+
+</body>
+</html>
